@@ -1,6 +1,5 @@
 import { SpotifyService } from "./../../services/spotify.service";
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-home",
@@ -9,10 +8,11 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HomeComponent {
   nuevasCanciones: any[] = [];
+  loading: boolean = true;
   constructor(private spotify: SpotifyService) {
     this.spotify.getNewReleases().subscribe((data: any) => {
-      console.log(data.albums.items)
-      this.nuevasCanciones = data.albums.items;
+      this.nuevasCanciones = data;
+      this.loading = false;
     });
   }
 }
