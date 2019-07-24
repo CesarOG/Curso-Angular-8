@@ -31,5 +31,5 @@ export class DeseosService {
   removeList(lista: Lista) {
     this.listas = this.listas.filter(listData => listData.id !== lista.id);
     this.saveLocalStorage();
-  } 
+  }
 }
