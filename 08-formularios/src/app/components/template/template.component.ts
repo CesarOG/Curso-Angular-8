@@ -13,7 +13,7 @@ export class TemplateComponent {
     correo: null,
     pais:"",
     sexo:"Hombre",
-    acepta:true
+    acepta:false
   };
   paises:object=[{codigo:"PE",nombre:"Perú"},{codigo:"BR",nombre:"Brasil"}];
   sexos:string[]=["Hombre","Mujer"]
