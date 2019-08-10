@@ -37,6 +37,16 @@ export class HeroesService {
         map(this.crearArreglo)
       )
   }
+
+  obtenerHeroe(id: string) {
+    return this.http.get(`${this.url}/heroes/${id}.json`);
+  }
+
+  borrarHeroe(id: string) {
+    return this.http.delete(`${this.url}/heroes/${id}.json`);
+  }
+
+
   crearArreglo(heroesObj: object) {
     const heroes: HeroeModel[] = [];
     console.log(heroesObj);
@@ -51,4 +61,5 @@ export class HeroesService {
 
     return heroes;
   }
+
 }
