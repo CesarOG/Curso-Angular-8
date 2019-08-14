@@ -1,0 +1,9 @@
+<div class="card-columns animated fadeIn faster">
+  <div class="card puntero" *ngFor="let movie of Movies" (click)="peliculaDetalle(movie.id)">
+    <img [src]="movie.backdrop_path | images" class="card-img-top" [alt]="movie.title">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}}</h5>
+      <p class="card-text">{{movie.overview}}</p>
+    </div>
+  </div>
+</div>
