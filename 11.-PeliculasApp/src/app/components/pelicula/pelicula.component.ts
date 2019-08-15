@@ -9,11 +9,17 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class PeliculaComponent implements OnInit {
   Pelicula: any = {};
+  pagAnterior: string = "";
+  search: string = "";
+
   constructor(private router: ActivatedRoute, private _ps: PeliculasService) {
-    const id = this.router.snapshot.paramMap.get("id");
-    this._ps.obtenerPelicula(id).subscribe(resp => {
-      this.Pelicula = resp;
-      console.log(this.Pelicula);
+    this.router.params.subscribe(param => {
+      this.pagAnterior = param["pag"];
+      this.search = param["search"];
+
+      this._ps.obtenerPelicula(param["id"]).subscribe(resp => {
+        this.Pelicula = resp;
+      });
     });
   }
 

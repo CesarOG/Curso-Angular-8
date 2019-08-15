@@ -1,1 +1,28 @@
-<p>buscar works!</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <input #texto type="text" class="form-control" placeholder="Buscar película" [(ngModel)]="buscar"
+          (keyup.enter)="buscarPelicula(texto.value)">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="display-4">Resultado de Busqueda: {{buscar}}</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-columns animated fadeIn faster">
+      <div class="card puntero" *ngFor="let movie of _ps.Peliculas" (click)="peliculaDetalle(movie.id)"
+        title="Ver más...">
+        <img [src]="movie | images" class="card-img-top" [alt]="movie.title">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">{{movie.overview | slice:0:250}}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,14 +8,17 @@ import { PeliculasService } from '../../services/peliculas.service';
 })
 export class HomeComponent {
 
-  Peliculas: any[] = [];
+  PeliculasPopulares: any;
+  PeliculasPopularesNinos: any;
+  PeliculasEstreno: any;
 
   constructor(public _ps: PeliculasService) {
 
-    this._ps.getPopulares().subscribe((resp: any[]) => {
-      this.Peliculas = resp;
-      console.log(this.Peliculas);
-    });
+    this._ps.getPopulares().subscribe((resp: any[]) => this.PeliculasPopulares = resp);
+
+    this._ps.getPopularesNinos().subscribe((resp: any[]) => this.PeliculasPopularesNinos = resp);
+
+    this._ps.getEstrenos().subscribe((resp: any[]) => this.PeliculasEstreno = resp);
 
   }
 

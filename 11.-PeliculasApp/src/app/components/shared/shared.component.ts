@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class SharedComponent implements OnInit {
 
-  @Input() Movies: any[];
+  @Input() Movies: any;
+  @Input() titulo: string;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -16,6 +18,6 @@ export class SharedComponent implements OnInit {
 
   peliculaDetalle(id: string) {
     console.log(id);
-    this.router.navigateByUrl(`/pelicula/${id}`);
+    this.router.navigateByUrl(`/pelicula/${id}/home`);
   }
 }

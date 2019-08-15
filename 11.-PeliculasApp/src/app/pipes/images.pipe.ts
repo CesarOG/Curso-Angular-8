@@ -7,9 +7,18 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class ImagesPipe implements PipeTransform {
   constructor(private domSanitizer: DomSanitizer) { }
 
-  transform(img: string): any {
+  transform(pelicula: any): any {
     let url = "https://image.tmdb.org/t/p/w500";
-    return this.domSanitizer.bypassSecurityTrustResourceUrl(url + img);
+
+    if (pelicula.backdrop_path) {
+      url += pelicula.backdrop_path;
+    } else if (pelicula.poster_path) {
+      url += pelicula.poster_path;
+    } else {
+      url = "./assets/img/no-imagen.jpg";
+    }
+    return url;
+    // return this.domSanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }

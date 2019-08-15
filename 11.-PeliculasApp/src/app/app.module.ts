@@ -10,6 +10,8 @@ import { PeliculasService } from './services/peliculas.service';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { ImagesPipe } from './pipes/images.pipe';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,15 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
     BuscarComponent,
     SharedComponent,
     ImagesPipe,
-    PeliculaComponent
+    PeliculaComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    JsonpModule
-
+    JsonpModule,
+    FormsModule
   ],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
