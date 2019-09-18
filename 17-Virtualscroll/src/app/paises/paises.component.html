@@ -1,0 +1,14 @@
+<h1>Paises</h1>
+<hr>
+<ul class="list-group" cdkDropList (cdkDropListDropped)="drop($event)">
+    <li cdkDrag *ngFor="let pais of paises" class="list-group-item">
+        <div class="row">
+            <div class="col">
+                {{ pais.name }} - {{ pais.capital}}
+            </div>
+            <div class="col">
+                <img class="img-thumbnail" [src]="pais.flag">
+            </div>
+        </div>
+    </li>
+</ul>
